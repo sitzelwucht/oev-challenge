@@ -1,0 +1,15 @@
+/* INPUT */
+
+input {
+  padding: 10px;
+  border: none;
+  background: rgb(226, 226, 226);
+  font-size: 14px;
+  font-family: 'Poppins';
+}
+
+input:active,
+input:focus {
+  border: none;
+  outline: none;
+}

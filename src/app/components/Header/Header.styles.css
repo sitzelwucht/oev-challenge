@@ -1,0 +1,44 @@
+header {
+  width: 80%;
+  color: grey;
+  margin: 40px 50px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.notification {
+  font-size: 14px;
+  font-weight: 600;
+  color: darkgrey;
+  margin: 20px auto;
+}
+.action-prompt-container {
+  margin: 0 20px;
+}
+.action-prompt-container:hover {
+  cursor: pointer;
+}
+.clear {
+  padding: 6px;
+}
+
+.clear:hover {
+  color: rgb(63, 63, 63);
+  transition: all ease-in-out 0.2s;
+}
+.fetch {
+  color: lightseagreen;
+  font-size: 16px;
+  font-weight: 600;
+}
+.fetch:hover {
+  color: rgb(36, 114, 110);
+  transition: all ease-in-out 0.2s;
+}

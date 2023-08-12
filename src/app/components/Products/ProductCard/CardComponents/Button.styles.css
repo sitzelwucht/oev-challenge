@@ -1,0 +1,37 @@
+/* BUTTONS */
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 5px;
+  width: 26px;
+  height: 26px;
+  background: rgb(190, 190, 190);
+  border-radius: 3px;
+  margin: 4px 5px;
+  letter-spacing: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all ease-in-out 0.2s;
+}
+
+.button-add:hover {
+  background-color: rgb(71, 143, 107);
+}
+.button-remove:hover {
+  background-color: rgb(202, 1, 24);
+}
