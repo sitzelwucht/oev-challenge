@@ -7,7 +7,6 @@ import { ProductName } from './CardComponents/ProductName';
 import { Price } from './CardComponents/Price';
 import { Description } from './CardComponents/Description';
 import { ProductImage } from './CardComponents/Image';
-
 import './ProductCard.styles.css';
 
 export const ProductCard = ({

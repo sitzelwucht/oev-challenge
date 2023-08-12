@@ -3,6 +3,7 @@ import { NotInterested, TravelExplore } from '@mui/icons-material';
 import { HeaderProps } from '@/app/PropData';
 
 import { Search } from '../Search/Search';
+
 import './Header.styles.css';
 
 export const Header = ({
@@ -41,7 +42,6 @@ export const Header = ({
         isFavorite={false}
         image={''}
         title={''}
-        error={''}
       />
       <div className="action-prompt-container flex">
         {isListCleared ? (

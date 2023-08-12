@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { AppProps } from '@/app/PropData';
-
 import { HighlightOff } from '@mui/icons-material';
+
+import { AppProps } from '@/app/PropData';
 
 export const Favorite = ({ product, removeFavorite }: AppProps) => (
   <div className="favorite-item">
