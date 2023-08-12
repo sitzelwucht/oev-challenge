@@ -1,5 +1,9 @@
 ## What to do
 
+```
+npm install
+```
+
 Run the development server:
 
 ```bash

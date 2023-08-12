@@ -11,7 +11,8 @@ export const useProducts = () => {
   const [searchInput, setSearchInput] = useState<string>('');
   const [productsToShow, setProductsToShow] = useState<Product[]>([]);
 
-  const noResults: boolean = searchInput.length > 0 && !productsToShow.length;
+  const noResults: boolean =
+    searchInput.length <= 0 && productsToShow.length <= 0;
 
   // Handlers
   const addFavorite = (product: Product): void => {
