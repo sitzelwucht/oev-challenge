@@ -16,7 +16,6 @@ export default function Home() {
     handleSearch,
     productsToShow,
     noResults,
-    error,
   } = useProducts();
 
   return (
