@@ -55,7 +55,7 @@ export const useProducts = () => {
     setSearchInput(event.target.value);
     setIsListCleared(false);
 
-    if (searchInput.length > 0) {
+    if (searchInput.length > 1) {
       setProductsToShow(
         productsToShow.filter((elem) =>
           elem.title.toLowerCase().includes(searchInput.toLowerCase())

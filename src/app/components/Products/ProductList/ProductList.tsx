@@ -18,7 +18,6 @@ export const ProductList = ({
   noResults,
   removeFavorite,
 }: AppProps) => {
-  console.log('prods.', productsToShow);
   return (
     <main>
       <Header
