@@ -50,4 +50,5 @@ export type HeaderProps = {
   handleSearch: Function;
   handleRemoveSuggestions: Function;
   product: Product;
+  searchInput: string;
 };

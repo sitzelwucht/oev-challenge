@@ -11,6 +11,7 @@ export const Header = ({
   isListCleared,
   fetchProductData,
   handleSearch,
+  searchInput,
 }: HeaderProps) => (
   <header>
     <h2>You might like:</h2>
@@ -26,22 +27,10 @@ export const Header = ({
           images: [],
           image: '',
         }}
-        description={''}
-        price={0}
-        discountPercentage={0}
-        id={0}
-        suggestions={[]}
-        favorites={[]}
-        handleRemoveSuggestions={Function}
-        removeFavorite={Function}
-        addFavorite={Function}
         isListCleared={false}
         fetchProductData={Function}
-        productsToShow={[]}
-        noResults={false}
-        isFavorite={false}
-        image={''}
-        title={''}
+        handleRemoveSuggestions={Function}
+        searchInput={''}
       />
       <div className="action-prompt-container flex">
         {isListCleared ? (

@@ -6,7 +6,6 @@ import { useProducts } from './hooks';
 
 export default function Home() {
   const {
-    suggestions,
     favorites,
     handleRemoveSuggestions,
     removeFavorite,
@@ -21,7 +20,7 @@ export default function Home() {
   return (
     <div className="container-box">
       <ProductList
-        suggestions={suggestions}
+        suggestions={productsToShow}
         favorites={favorites}
         handleRemoveSuggestions={handleRemoveSuggestions}
         addFavorite={addFavorite}

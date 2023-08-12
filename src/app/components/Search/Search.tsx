@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { AppProps } from '@/app/PropData';
+import { AppProps, HeaderProps } from '@/app/PropData';
 
 import './Search.styles.css';
 
-export const Search = ({ handleSearch }: AppProps) => (
+export const Search = ({ handleSearch }: HeaderProps) => (
   <form>
     <input
       type="text"

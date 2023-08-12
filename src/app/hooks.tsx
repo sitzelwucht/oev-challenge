@@ -7,17 +7,11 @@ import { Product } from './PropData';
 export const useProducts = () => {
   // States
   const [favorites, setfavorites] = useState<Product[]>([]);
-  const [suggestions, setSuggestions] = useState<Product[]>([]);
   const [isListCleared, setIsListCleared] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
-  const [filteredSuggestions, setFilteredSuggestions] = useState<Product[]>([]);
+  const [productsToShow, setProductsToShow] = useState<Product[]>([]);
 
-  // Constants
-  const productsToShow: Product[] = searchInput
-    ? filteredSuggestions
-    : suggestions;
-  const noResults: boolean =
-    searchInput.length > 0 && !filteredSuggestions.length;
+  const noResults: boolean = searchInput.length > 0 && !productsToShow.length;
 
   // Handlers
   const addFavorite = (product: Product): void => {
@@ -33,21 +27,12 @@ export const useProducts = () => {
     product: Product
   ): void => {
     if (isClearAll) {
-      setSuggestions([]);
+      setProductsToShow([]);
       setIsListCleared(true);
+      setSearchInput('');
     } else {
-      setSuggestions(suggestions.filter((item) => item.id !== product.id));
-    }
-  };
-
-  const handleSearch = (event: any): void => {
-    setSearchInput(event.target.value);
-
-    if (searchInput.length > 0) {
-      setFilteredSuggestions(
-        suggestions.filter((elem) =>
-          elem.title.toLowerCase().includes(searchInput.toLowerCase())
-        )
+      setProductsToShow(
+        productsToShow.filter((item) => item.id !== product.id)
       );
     }
   };
@@ -58,12 +43,27 @@ export const useProducts = () => {
         return response.json();
       })
       .then((data) => {
-        setSuggestions(data.products);
+        setProductsToShow(data.products);
         setIsListCleared(false);
       })
       .catch((err) => {
         console.log('Following error occurred: ', err);
       });
+  };
+
+  const handleSearch = (event: any): void => {
+    setSearchInput(event.target.value);
+    setIsListCleared(false);
+
+    if (searchInput.length > 0) {
+      setProductsToShow(
+        productsToShow.filter((elem) =>
+          elem.title.toLowerCase().includes(searchInput.toLowerCase())
+        )
+      );
+    } else {
+      fetchProductData();
+    }
   };
 
   // Effetcs
@@ -76,7 +76,6 @@ export const useProducts = () => {
     addFavorite,
     handleRemoveSuggestions,
     favorites,
-    suggestions,
     isListCleared,
     fetchProductData,
     handleSearch,
