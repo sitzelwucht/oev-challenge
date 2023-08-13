@@ -9,10 +9,13 @@ export const useProducts = () => {
   const [favorites, setfavorites] = useState<Product[]>([]);
   const [isListCleared, setIsListCleared] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>('');
+  const [suggestions, setSuggestions] = useState<Product[]>([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState<Product[]>([]);
   const [productsToShow, setProductsToShow] = useState<Product[]>([]);
 
+  // Constants
   const noResults: boolean =
-    searchInput.length <= 0 && productsToShow.length <= 0;
+    !filteredSuggestions.length && searchInput.length > 0;
 
   // Handlers
   const addFavorite = (product: Product): void => {
@@ -45,6 +48,7 @@ export const useProducts = () => {
       })
       .then((data) => {
         setProductsToShow(data.products);
+        setSuggestions(data.products);
         setIsListCleared(false);
       })
       .catch((err) => {
@@ -56,9 +60,9 @@ export const useProducts = () => {
     setSearchInput(event.target.value);
     setIsListCleared(false);
 
-    if (searchInput.length > 1) {
-      setProductsToShow(
-        productsToShow.filter((elem) =>
+    if (searchInput.length > 0) {
+      setFilteredSuggestions(
+        suggestions.filter((elem) =>
           elem.title.toLowerCase().includes(searchInput.toLowerCase())
         )
       );
@@ -71,6 +75,12 @@ export const useProducts = () => {
   useEffect(() => {
     fetchProductData();
   }, []);
+
+  useEffect(() => {
+    if (filteredSuggestions.length > 0) {
+      setProductsToShow(filteredSuggestions);
+    }
+  }, [filteredSuggestions]);
 
   return {
     removeFavorite,

@@ -37,7 +37,9 @@ export const ProductList = ({
         searchInput={''}
       />
       <div className="suggestions-container">
-        {productsToShow.length ? (
+        {noResults || isListCleared ? (
+          <div className="notification">No suggestions</div>
+        ) : productsToShow.length ? (
           productsToShow.map((item: Product) => (
             <ProductCard
               product={item}
@@ -61,8 +63,6 @@ export const ProductList = ({
               title={''}
             />
           ))
-        ) : isListCleared || noResults ? (
-          <div className="notification">No suggestions</div>
         ) : (
           <Spinner />
         )}
